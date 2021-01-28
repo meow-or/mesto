@@ -1,0 +1,19 @@
+.footer {
+  margin-top: 50px;
+  border: deepskyblue 1px dotted;
+}
+
+/*
+@media all and (max-width: 1023px) {
+  .footer {
+    max-width: calc(100% - 48px);
+  }
+}
+
+@media all and (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+*/

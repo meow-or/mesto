@@ -1,0 +1,66 @@
+
+@import url('../vendor/normalize.css');
+
+@import url('../vendor/fonts/fonts.css');
+
+@import url('../blocks/page/page.css');
+@import url('../blocks/page/__container/page__container.css');
+
+
+
+/*                  отступы                */
+
+@import url('../blocks/page/__header/page__header.css');
+
+@import url('../blocks/page/__elements/page__elements.css');
+
+@import url('../blocks/page/__footer/page__footer.css');
+
+/*                       header                         */
+
+@import url('../blocks/header/header.css');
+
+@import url('../blocks/header/__logo/header__logo.css');
+
+
+/*                 section Elements  [Галерея]       */
+
+@import url('../blocks/elements/elements.css');
+
+@import url('../blocks/elements/__item/elements__item.css');
+
+
+
+@import url('../blocks/footer/footer.css');
+
+
+@import url('../blocks/footer/__copyright/footer__copyright.css');
+
+
+/*
+
+@media all and (max-width: 1279px) {
+  .page__container {
+    margin: 45px 15.625% 60px
+  }
+}
+
+@media all and (max-width: 1023px) {
+  .page__container {
+    margin: 45px 15.625% 60px
+  }
+}
+
+@media all and (max-width: 767px) {
+  .page__container {
+    margin: 45px 10% 60px
+  }
+}
+
+@media all and (max-width: 544px) {
+  .page__container {
+    margin: 28px 0 36px
+  }
+}
+
+*/
