@@ -1,24 +1,28 @@
-.footer {
+.profile {
   max-width: calc(100% - 400px);
-  margin-top: 50px;
-  border: deepskyblue 1px dotted;
+  display: flex;
+  align-items: center;
+  
+  /*border: 1px solid #b63232;*/
 }
 
 
 @media all and (max-width: 1279px) {
-  .footer {
+  .profile {
     max-width: 68.75%;
   }
 }
 
 @media all and (max-width: 1023px) {
-  .footer {
+  .profile {
     max-width: 80%;
   }
 }
 
+
 @media all and (max-width: 768px) {
-  .footer {
-    max-width: 100%;
+  .profile {
+    flex-direction: column;
+    max-width: calc(100% - 38px);
   }
 }
