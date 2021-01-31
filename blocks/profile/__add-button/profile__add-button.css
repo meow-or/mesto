@@ -23,8 +23,8 @@
 
 @media all and (max-width: 768px) {
   .profile__add-button {
-    margin: 36px 0 0;
-    width: 100%;
+    margin: 36px auto 0;
+    width: 282px;
     background-size: 18px 18px;
   }
 }
