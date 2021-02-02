@@ -5,6 +5,7 @@ let formSaveButton = overlay.querySelector('.edit-form__submit-button');
 
 let inputName = overlay.querySelector('.edit-form__input_name');
 let inputProfession = overlay.querySelector('.edit-form__input_profession');
+
 let inputNameText = document.querySelector('.profile__title');
 let inputProfessionText = document.querySelector('.profile__subtitle');
 
@@ -16,12 +17,9 @@ let toggleForm = function () {
 }
 
 function saveForm (evt) {
-
   evt.preventDefault();
-  
   inputNameText.textContent = inputName.value;
   inputProfessionText.textContent = inputProfession.value;
-
   toggleForm();
 }
 
