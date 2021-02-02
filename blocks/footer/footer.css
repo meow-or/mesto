@@ -1,5 +1,7 @@
 .footer {
   max-width: calc(100% - 400px);
+  display: flex;
+  justify-content: flex-start;
 
   /*border: deepskyblue 1px dotted;*/
 }

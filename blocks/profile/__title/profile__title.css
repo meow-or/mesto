@@ -7,6 +7,17 @@
   line-height: 1.14;
 }
 
+
+
+@media all and (max-width: 1023px) {
+  .profile__title {
+    font-size: 34px;
+    line-height: 1.22;
+  }
+}
+
+
+
 @media all and (max-width: 768px) {
   .profile__title {
     font-size: 27px;
