@@ -2,6 +2,7 @@ let overlay = document.querySelector('.edit-form');
 let formOpenButton = document.querySelector('.profile__edit-button');
 let formCloseButton = overlay.querySelector('.edit-form__close');
 let formSaveButton = overlay.querySelector('.edit-form__submit-button');
+let form = overlay.querySelector('.edit-form__container');
 
 let inputName = overlay.querySelector('.edit-form__input_name');
 let inputProfession = overlay.querySelector('.edit-form__input_profession');
@@ -26,6 +27,6 @@ let saveForm = function (evt) {
 formOpenButton.addEventListener('click', toggleForm);
 formCloseButton.addEventListener('click', toggleForm);
 
-formSaveButton.addEventListener('submit', saveForm); 
+form.addEventListener('submit', saveForm); 
 
 
