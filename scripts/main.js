@@ -8,11 +8,11 @@ let inputProfession = overlay.querySelector('.edit-form__input_profession');
 let inputNameText = document.querySelector('.profile__title');
 let inputProfessionText = document.querySelector('.profile__subtitle');
 
-inputName.value = inputNameText.textContent;
-inputProfession.value = inputProfessionText.textContent;
 
 let toggleForm = function () {
   overlay.classList.toggle('edit-form_opened');
+  inputName.setAttribute('value', inputNameText.textContent);
+  inputProfession.setAttribute('value', inputProfessionText.textContent);
 }
 
 function saveForm (evt) {
