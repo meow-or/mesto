@@ -8,6 +8,7 @@
   margin: 48px 0 0;
   padding: 14px 0 18px;
   border: none;
+  outline: none;
 }
 
 .edit-form__submit-button:hover {

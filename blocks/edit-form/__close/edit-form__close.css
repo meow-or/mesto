@@ -1,6 +1,7 @@
 .edit-form__close {
   position: absolute;
   padding: 0;
+  outline: none;
   right: -40px;
   top: -40px;
   width: 40.7px;
@@ -15,9 +16,11 @@
 }
 
 
-.edit-form__close:hover::before {
-  border-color: turquoise;
+.edit-form__close:hover::before,
+.edit-form__close:hover::after {
+  opacity: .6;
 }
+
 
 .edit-form__close:active::after{
   border-left: rgb(192, 76, 76) 4px dashed;
