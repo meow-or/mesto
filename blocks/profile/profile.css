@@ -1,26 +1,28 @@
-.elements {
+.profile {
   max-width: calc(100% - 400px);
-  /*border: dashed 1px bisque;*/
+  display: flex;
+  align-items: center;
+  
+  /*border: 1px solid #b63232;*/
 }
 
 
 @media all and (max-width: 1279px) {
-  .elements {
+  .profile {
     max-width: 68.75%;
   }
 }
 
 @media all and (max-width: 1023px) {
-  .elements {
+  .profile {
     max-width: 80%;
   }
 }
 
 
 @media all and (max-width: 768px) {
-  .elements {
+  .profile {
+    flex-direction: column;
     max-width: calc(100% - 38px);
   }
 }
-
-

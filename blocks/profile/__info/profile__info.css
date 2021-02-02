@@ -1,0 +1,23 @@
+.profile__info {
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) 24px;
+  grid-template-rows: repeat(2, min-content);
+  gap: 16px 18px;
+  grid-template-areas:
+  "title button"
+  "subtitle subtitle";
+  justify-content: center;
+  margin-left: 30px;
+  
+  /*border: 1px salmon solid;*/
+}
+
+
+@media all and (max-width: 768px) {
+  .profile__info {
+    margin: 26px 0 0;
+    width: 100%;
+    justify-items: center;
+    gap: 14px 10px;
+  }
+}

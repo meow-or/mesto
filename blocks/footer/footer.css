@@ -1,9 +1,10 @@
 .footer {
   max-width: calc(100% - 400px);
-  margin-top: 50px;
-  border: deepskyblue 1px dotted;
-}
+  display: flex;
+  justify-content: flex-start;
 
+  /*border: deepskyblue 1px dotted;*/
+}
 
 @media all and (max-width: 1279px) {
   .footer {
@@ -11,14 +12,16 @@
   }
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 1023px) {
   .footer {
     max-width: 80%;
   }
 }
 
-@media all and (max-width: 544px) {
+
+@media all and (max-width: 768px) {
   .footer {
-    max-width: 100%;
+    flex-direction: column;
+    max-width: calc(100% - 38px);
   }
 }

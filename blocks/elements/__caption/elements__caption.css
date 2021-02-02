@@ -1,0 +1,6 @@
+.elements__caption {
+  display: grid;
+  grid-template-columns: 1fr 22px;
+  column-gap: 35px;
+  padding: 25px 15px 31px 21px;
+}
