@@ -16,7 +16,7 @@ let toggleForm = function () {
   inputProfession.setAttribute('value', inputProfessionText.textContent);
 }
 
-function saveForm (evt) {
+let saveForm = function (evt) {
   evt.preventDefault();
   inputNameText.textContent = inputName.value;
   inputProfessionText.textContent = inputProfession.value;
