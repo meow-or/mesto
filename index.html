@@ -45,7 +45,7 @@
       <section class="elements page__elements" aria-label="Галерея">
       
         <ul class="elements__list">
-      
+      <!--
           <li class="elements__item">
             <figure class="elements__figure">
 
@@ -122,7 +122,7 @@
               </figcaption>
               
             </figure>
-          </li>
+          </li>-->
       
         </ul>
       
@@ -155,6 +155,24 @@
     </form>
 
   </section>
+
+  <section class="edit-form" aria-label="Новое место">
+  
+    <form class="edit-form__container" method="post" name="edit-form">
+  
+      <button class="edit-form__close" type="button"></button>
+  
+      <h2 class="edit-form__title">Новое место</h2>
+  
+      <input class="edit-form__input edit-form__input_name" type="text" name="name">
+      <input class="edit-form__input edit-form__input_profession" type="text" name="profession">
+  
+      <button class="edit-form__submit-button" type="submit">Создать</button>
+  
+    </form>
+  
+  </section>
+
   <script src="./scripts/main.js"></script>
 </body>
 </html>
