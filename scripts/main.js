@@ -25,6 +25,26 @@ const initialCards = [
   }
 ]; 
 
+const listContainer = document.querySelector('.elements__list');
+const templateCard = document.querySelector('.template');
+
+function render() {
+  const cards = initialCards.map(getCard);
+  listContainer.append(...cards);
+}
+
+function getCard(item) {
+  const newCard = templateCard.content.cloneNode(true);
+  const placeName = newCard.querySelector('.elements__caption-text');
+  const placePicture = newCard.querySelector('.elements__image');
+  placeName.textContent = item.name;
+  placePicture.src = item.link;
+
+  return newCard;
+}
+
+render();
+
 /* profile */
 const overlayProfile = document.querySelector('.popup_type_profile');
 const formProfile = overlayProfile.querySelector('.popup__container');
