@@ -1,31 +1,94 @@
-const overlay = document.querySelector('.edit-form');
-const formOpenButton = document.querySelector('.profile__edit-button');
-const formCloseButton = overlay.querySelector('.edit-form__close');
-const form = overlay.querySelector('.edit-form__container');
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+]; 
 
-const inputName = overlay.querySelector('.edit-form__input[name="name"]');
-const inputProfession = overlay.querySelector('.edit-form__input[name="profession"]');
+/* profile */
+const overlayProfile = document.querySelector('.popup_type_profile');
+const formProfile = overlayProfile.querySelector('.popup__container');
+const editProfileButton = document.querySelector('.profile__edit-button');
+const profileCloseButton = overlayProfile.querySelector('.popup__close');
+
+const inputName = overlayProfile.querySelector('.popup__input[name="name"]');
+const inputProfession = overlayProfile.querySelector('.popup__input[name="profession"]');
 
 const inputNameText = document.querySelector('.profile__title');
 const inputProfessionText = document.querySelector('.profile__subtitle');
 
+/* add-place */
+const addPlaceButton = document.querySelector('.profile__add-button');
+const overlayPlace = document.querySelector('.popup_type_new-place');
+const formPlace = overlayPlace.querySelector('.popup__container');
+const placeCloseButton = overlayPlace.querySelector('.popup__close');
 
-const toggleForm = function () {
-  overlay.classList.toggle('edit-form_opened');
+const inputPlaceName = overlayPlace.querySelector('.popup__input[name="place-name"]');
+const inputPlacePicture = overlayPlace.querySelector('.popup__input[name="picture"]');
+
+const inputPlaceNameText = document.querySelector('.elements__caption-text');
+const inputPictureLink = document.querySelector('.elements__image');
+
+
+
+/* profile */
+
+const toggleProfile = function () {
+  overlayProfile.classList.toggle('popup_opened');
   inputName.value = inputNameText.textContent;
   inputProfession.value = inputProfessionText.textContent;
 }
 
-const saveForm = function (evt) {
+const saveProfile = function (evt) {
   evt.preventDefault();
   inputNameText.textContent = inputName.value;
   inputProfessionText.textContent = inputProfession.value;
-  toggleForm();
+  toggleProfile();
 }
 
-formOpenButton.addEventListener('click', toggleForm);
-formCloseButton.addEventListener('click', toggleForm);
+editProfileButton.addEventListener('click', toggleProfile);
+profileCloseButton.addEventListener('click', toggleProfile);
 
-form.addEventListener('submit', saveForm); 
+formProfile.addEventListener('submit', saveProfile); 
 
 
+/* add-place */
+
+const togglePlace = function () {
+  overlayPlace.classList.toggle('popup_opened');
+/*
+  inputPlaceName.value = inputPlaceNameText.textContent;
+  inputPlacePicture.value = inputPictureLink.textContent;*/
+}
+
+const savePlace = function (evt) {
+  evt.preventDefault();
+  /*inputPlaceNameText.textContent = inputPlaceName.value;
+  inputPictureLink.textContent = inputPlacePicture.value;*/
+  togglePlace();
+}
+
+addPlaceButton.addEventListener('click', togglePlace);
+placeCloseButton.addEventListener('click', togglePlace);
+
+formPlace.addEventListener('submit', savePlace); 
