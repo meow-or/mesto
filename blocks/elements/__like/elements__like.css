@@ -16,6 +16,6 @@
 }
 
 .elements__like:active {
-  opacity: 1;
-  background: url('../../../images/heartblack.svg');
+  opacity: .7;
+  
 }

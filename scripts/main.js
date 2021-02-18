@@ -45,14 +45,11 @@ const placeCloseButton = overlayPlace.querySelector('.popup__close');
 
 const inputPlaceName = overlayPlace.querySelector('.popup__input[name="place-name"]');
 const inputPlacePicture = overlayPlace.querySelector('.popup__input[name="picture"]');
-/*
-const inputPlaceNameText = document.querySelector('.elements__caption-text');
-const inputPictureLink = document.querySelector('.elements__image');*/
 
-
-
+/* list container & template el*/
 const listContainer = document.querySelector('.elements__list');
 const templateCard = document.querySelector('.template');
+
 
 
 function render() {
@@ -66,9 +63,21 @@ function getCard(item) {
   const placePicture = newCard.querySelector('.elements__image');
   placeName.textContent = item.name;
   placePicture.src = item.link;
+  placePicture.alt = item.name;
+
+  /* like toggle */
+  const likeButton = newCard.querySelector('.elements__like');
+
+  likeButton.addEventListener('click', function () {
+      likeButton.classList.toggle('elements__like_active');
+  })
+
 
   return newCard;
+
 }
+
+
 
 function cardAdd (evt) {
   
@@ -97,9 +106,6 @@ placeCloseButton.addEventListener('click', togglePlace);
 formPlace.addEventListener('submit', cardAdd); 
 
 
-render();
-
-
 
 /* profile */
 
@@ -120,5 +126,10 @@ editProfileButton.addEventListener('click', toggleProfile);
 profileCloseButton.addEventListener('click', toggleProfile);
 
 formProfile.addEventListener('submit', saveProfile); 
+
+
+
+
+render();
 
 
