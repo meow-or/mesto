@@ -25,26 +25,6 @@ const initialCards = [
   }
 ]; 
 
-const listContainer = document.querySelector('.elements__list');
-const templateCard = document.querySelector('.template');
-
-function render() {
-  const cards = initialCards.map(getCard);
-  listContainer.append(...cards);
-}
-
-function getCard(item) {
-  const newCard = templateCard.content.cloneNode(true);
-  const placeName = newCard.querySelector('.elements__caption-text');
-  const placePicture = newCard.querySelector('.elements__image');
-  placeName.textContent = item.name;
-  placePicture.src = item.link;
-
-  return newCard;
-}
-
-render();
-
 /* profile */
 const overlayProfile = document.querySelector('.popup_type_profile');
 const formProfile = overlayProfile.querySelector('.popup__container');
@@ -65,9 +45,59 @@ const placeCloseButton = overlayPlace.querySelector('.popup__close');
 
 const inputPlaceName = overlayPlace.querySelector('.popup__input[name="place-name"]');
 const inputPlacePicture = overlayPlace.querySelector('.popup__input[name="picture"]');
-
+/*
 const inputPlaceNameText = document.querySelector('.elements__caption-text');
-const inputPictureLink = document.querySelector('.elements__image');
+const inputPictureLink = document.querySelector('.elements__image');*/
+
+
+
+const listContainer = document.querySelector('.elements__list');
+const templateCard = document.querySelector('.template');
+
+
+function render() {
+  const cards = initialCards.map(getCard);
+  listContainer.append(...cards);
+}
+
+function getCard(item) {
+  const newCard = templateCard.content.cloneNode(true);
+  const placeName = newCard.querySelector('.elements__caption-text');
+  const placePicture = newCard.querySelector('.elements__image');
+  placeName.textContent = item.name;
+  placePicture.src = item.link;
+
+  return newCard;
+}
+
+function cardAdd (evt) {
+  
+  evt.preventDefault();
+
+  const inputPlace = inputPlaceName.value;
+  const inputPicture = inputPlacePicture.value;
+
+  const newPlace = getCard({link: inputPicture, name: inputPlace});
+  
+  listContainer.prepend(newPlace);
+
+  inputPlaceName.value = '';
+  inputPlacePicture.value = '';
+
+  togglePlace();
+}
+
+const togglePlace = function () {
+  overlayPlace.classList.toggle('popup_opened');
+}
+
+addPlaceButton.addEventListener('click', togglePlace);
+placeCloseButton.addEventListener('click', togglePlace);
+
+formPlace.addEventListener('submit', cardAdd); 
+
+
+render();
 
 
 
@@ -92,23 +122,3 @@ profileCloseButton.addEventListener('click', toggleProfile);
 formProfile.addEventListener('submit', saveProfile); 
 
 
-/* add-place */
-
-const togglePlace = function () {
-  overlayPlace.classList.toggle('popup_opened');
-/*
-  inputPlaceName.value = inputPlaceNameText.textContent;
-  inputPlacePicture.value = inputPictureLink.textContent;*/
-}
-
-const savePlace = function (evt) {
-  evt.preventDefault();
-  /*inputPlaceNameText.textContent = inputPlaceName.value;
-  inputPictureLink.textContent = inputPlacePicture.value;*/
-  togglePlace();
-}
-
-addPlaceButton.addEventListener('click', togglePlace);
-placeCloseButton.addEventListener('click', togglePlace);
-
-formPlace.addEventListener('submit', savePlace); 
