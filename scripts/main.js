@@ -72,6 +72,9 @@ function getCard(item) {
       likeButton.classList.toggle('elements__like_active');
   })
 
+  const removeButton = newCard.querySelector('.elements__bin');
+  removeButton.addEventListener('click', cardRemove);
+
 
   return newCard;
 
@@ -105,6 +108,12 @@ placeCloseButton.addEventListener('click', togglePlace);
 
 formPlace.addEventListener('submit', cardAdd); 
 
+function cardRemove (evt) {
+    const targetButton = evt.target;
+    const targetCard = targetButton.closest('.elements__item');
+    targetCard.remove();
+}
+
 
 
 /* profile */
@@ -126,7 +135,6 @@ editProfileButton.addEventListener('click', toggleProfile);
 profileCloseButton.addEventListener('click', toggleProfile);
 
 formProfile.addEventListener('submit', saveProfile); 
-
 
 
 
