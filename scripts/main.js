@@ -23,7 +23,7 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-]; 
+];
 
 /* profile */
 const overlayProfile = document.querySelector('.popup_type_profile');
@@ -38,18 +38,24 @@ const inputNameText = document.querySelector('.profile__title');
 const inputProfessionText = document.querySelector('.profile__subtitle');
 
 /* add-place */
-const addPlaceButton = document.querySelector('.profile__add-button');
 const overlayPlace = document.querySelector('.popup_type_new-place');
+const addPlaceButton = document.querySelector('.profile__add-button');
 const formPlace = overlayPlace.querySelector('.popup__container');
 const placeCloseButton = overlayPlace.querySelector('.popup__close');
 
 const inputPlaceName = overlayPlace.querySelector('.popup__input[name="place-name"]');
 const inputPlacePicture = overlayPlace.querySelector('.popup__input[name="picture"]');
 
+/* popup image */
+const overlayImage = document.querySelector('.popup_type_image');
+const imagePopup = document.querySelector('.popup__image');
+const imageCaption = document.querySelector('.popup__caption-text');
+const overlayImageCloseButton = overlayImage.querySelector('.popup__close');
+
+
 /* list container & template el*/
 const listContainer = document.querySelector('.elements__list');
 const templateCard = document.querySelector('.template');
-
 
 
 function render() {
@@ -70,25 +76,25 @@ function getCard(item) {
 
   likeButton.addEventListener('click', function () {
       likeButton.classList.toggle('elements__like_active');
-  })
+    })
 
+  /* remove place */
   const removeButton = newCard.querySelector('.elements__bin');
   removeButton.addEventListener('click', cardRemove);
 
-
+  /* open image-popup & fullsize image */
+  placePicture.addEventListener('click', () => openImagePopup(item));
+  
   return newCard;
 
 }
 
-
+/*  add new place*/
 
 function cardAdd (evt) {
-  
   evt.preventDefault();
-
   const inputPlace = inputPlaceName.value;
   const inputPicture = inputPlacePicture.value;
-
   const newPlace = getCard({link: inputPicture, name: inputPlace});
   
   listContainer.prepend(newPlace);
@@ -96,17 +102,28 @@ function cardAdd (evt) {
   inputPlaceName.value = '';
   inputPlacePicture.value = '';
 
-  togglePlace();
+  togglePopup(overlayPlace);
 }
 
-const togglePlace = function () {
-  overlayPlace.classList.toggle('popup_opened');
-}
 
-addPlaceButton.addEventListener('click', togglePlace);
-placeCloseButton.addEventListener('click', togglePlace);
+addPlaceButton.addEventListener('click', () => togglePopup(overlayPlace));
+placeCloseButton.addEventListener('click', () => togglePopup(overlayPlace));  
 
 formPlace.addEventListener('submit', cardAdd); 
+
+/* open/close image popup */
+
+function openImagePopup (item) {
+  imagePopup.src = item.link;
+  imagePopup.alt = item.name;
+  imageCaption.textContent = item.name;
+  togglePopup(overlayImage);
+}
+
+overlayImageCloseButton.addEventListener('click', () => togglePopup(overlayImage));
+
+
+/* remove card */
 
 function cardRemove (evt) {
     const targetButton = evt.target;
@@ -114,14 +131,12 @@ function cardRemove (evt) {
     targetCard.remove();
 }
 
-
-
 /* profile */
 
 const toggleProfile = function () {
-  overlayProfile.classList.toggle('popup_opened');
   inputName.value = inputNameText.textContent;
-  inputProfession.value = inputProfessionText.textContent;
+  inputProfession.value = inputProfessionText.textContent; 
+  togglePopup(overlayProfile);
 }
 
 const saveProfile = function (evt) {
@@ -132,10 +147,14 @@ const saveProfile = function (evt) {
 }
 
 editProfileButton.addEventListener('click', toggleProfile);
-profileCloseButton.addEventListener('click', toggleProfile);
+profileCloseButton.addEventListener('click', toggleProfile);  
 
 formProfile.addEventListener('submit', saveProfile); 
 
+
+function togglePopup(item) {
+  item.classList.toggle('popup_opened');
+}
 
 
 render();
