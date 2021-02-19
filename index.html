@@ -8,6 +8,7 @@
   <meta name="author" content="Pavel Fazliev">
   <title>Mesto-Russia</title>
   <link rel="stylesheet" href="./pages/index.css">
+  <script src="./scripts/main.js" defer></script>
 </head>
 <body class="page">
 
@@ -48,6 +49,8 @@
       <!--
           <li class="elements__item">
             <figure class="elements__figure">
+
+              <button type="button" class="elements__bin"></button>
 
               <img src="./images/baikal.jpg" alt="Байкал" class="elements__image">
 
@@ -139,41 +142,82 @@
   
   </div>
 
-  <section class="edit-form" aria-label="Редактировать профиль">
+<!--              edit profile popup             -->
 
-    <form class="edit-form__container" method="post" name="edit-form">
+  <section class="popup popup_type_profile" aria-label="Редактировать профиль">
 
-      <button  class="edit-form__close" type="button"></button>
+    <form class="popup__container" method="post" name="edit-form">
 
-      <h2 class="edit-form__title">Редактировать профиль</h2>
+      <button  class="popup__close" type="button"></button>
 
-      <input class="edit-form__input edit-form__input_name" type="text" name="name">
-      <input class="edit-form__input edit-form__input_profession" type="text" name="profession"> 
+      <h2 class="popup__title">Редактировать профиль</h2>
 
-      <button class="edit-form__submit-button" type="submit">Сохранить</button>
+      <input class="popup__input" type="text" name="name">
+      <input class="popup__input" type="text" name="profession"> 
+
+      <button class="popup__submit-button" type="submit">Сохранить</button>
 
     </form>
 
   </section>
 
-  <section class="edit-form" aria-label="Новое место">
+  <!--              add new place popup              -->
+
+  <section class="popup popup_type_new-place" aria-label="Новое место">
   
-    <form class="edit-form__container" method="post" name="edit-form">
+    <form class="popup__container" method="post" name="add-place">
   
-      <button class="edit-form__close" type="button"></button>
+      <button class="popup__close" type="button"></button>
   
-      <h2 class="edit-form__title">Новое место</h2>
+      <h2 class="popup__title">Новое место</h2>
   
-      <input class="edit-form__input edit-form__input_name" type="text" name="name">
-      <input class="edit-form__input edit-form__input_profession" type="text" name="profession">
+      <input class="popup__input" type="text" name="place-name" placeholder="Название">
+      <input class="popup__input" type="text" name="picture" placeholder="Ссылка на картинку">
   
-      <button class="edit-form__submit-button" type="submit">Создать</button>
+      <button class="popup__submit-button" type="submit">Создать</button>
   
     </form>
   
   </section>
 
-  <script src="./scripts/main.js"></script>
+<!--              image popup              -->
+
+  <section class="popup popup_type_image" aria-label="Увеличить фото">
+
+    <figure class="popup__figure">
+    
+      <button type="button" class="popup__close"></button>
+      <img src="#" alt="#" class="popup__image">
+      
+      <figcaption class="popup__caption">
+        <p class="popup__caption-text"></p>
+      </figcaption>
+    
+    </figure>
+    
+    </section>
+
+    <!--              template new-place card              -->
+
+  <template class="template">
+
+    <li class="elements__item">
+      <figure class="elements__figure">
+
+        <button type="button" class="elements__bin"></button>
+    
+        <img src="#" alt="#" class="elements__image">
+    
+        <figcaption class="elements__caption">
+          <h2 class="elements__caption-text"></h2>
+          <button type="button" class="elements__like"></button>
+        </figcaption>
+    
+      </figure>
+    </li>
+
+  </template>
+
 </body>
 </html>
 

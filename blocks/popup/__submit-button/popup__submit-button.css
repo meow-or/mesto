@@ -1,4 +1,4 @@
-.edit-form__submit-button {
+.popup__submit-button {
   background: #000;
   color: #fff;
   text-align: center;
@@ -11,17 +11,17 @@
   outline: none;
 }
 
-.edit-form__submit-button:hover {
+.popup__submit-button:hover {
   opacity: .8;
 }
 
-.edit-form__submit-button:active {
+.popup__submit-button:active {
   opacity: .9;
 }
 
 
 @media all and (max-width: 767px) {
-  .edit-form__submit-button {
+  .popup__submit-button {
     font-size: 14px;
     line-height: 17px;
     padding: 14px 0;
