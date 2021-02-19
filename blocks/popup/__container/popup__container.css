@@ -1,5 +1,5 @@
 
-.edit-form__container {
+.popup__container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -19,7 +19,7 @@
 
 
 @media all and (max-width: 767px) {
-  .edit-form__container {
+  .popup__container {
     width: calc(100% - 38px);
     max-width: 350px;
     padding: 25px 22px;
