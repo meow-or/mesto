@@ -105,7 +105,6 @@ function cardAdd (evt) {
   togglePopup(overlayPlace);
 }
 
-
 addPlaceButton.addEventListener('click', () => togglePopup(overlayPlace));
 placeCloseButton.addEventListener('click', () => togglePopup(overlayPlace));  
 
