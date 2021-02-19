@@ -1,4 +1,4 @@
-.edit-form__close {
+.popup__close {
   position: absolute;
   padding: 0;
   outline: none;
@@ -16,18 +16,18 @@
 }
 
 
-.edit-form__close:hover::before,
-.edit-form__close:hover::after {
+.popup__close:hover::before,
+.popup__close:hover::after {
   opacity: .6;
 }
 
 
-.edit-form__close:active::after{
+.popup__close:active::after{
   border-left: rgb(192, 76, 76) 4px dashed;
 }
 
-.edit-form__close::after,
-.edit-form__close::before {
+.popup__close::after,
+.popup__close::before {
   content: '';
   display: block;
   height: 40.7px;
@@ -36,18 +36,18 @@
   transition: border-color .6s linear;
 }
 
-.edit-form__close::after {
+.popup__close::after {
   transform: rotate(-45deg);
 }
 
-.edit-form__close::before {
+.popup__close::before {
   transform: rotate(45deg);
 }
 
 
 @media all and (max-width: 767px) {
 
-  .edit-form__close {
+  .popup__close {
     
     right: 0px;
     top: -39.62px;
@@ -55,8 +55,8 @@
     height: 26px;
   }
 
-  .edit-form__close::after,
-  .edit-form__close::before {
+  .popup__close::after,
+  .popup__close::before {
     height: 30px;
   }
 
