@@ -1,0 +1,21 @@
+.elements__bin {
+  background: url('../../../images/trash.svg');
+  width: 18px;
+  height: 19.3px;
+  padding: 0;
+  border: none;
+  outline: none;
+  align-self: center;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.elements__bin:hover {
+  opacity: .6;
+}
+
+.elements__bin:active {
+  opacity: .9;
+}
