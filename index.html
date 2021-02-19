@@ -46,87 +46,7 @@
       <section class="elements page__elements" aria-label="Галерея">
       
         <ul class="elements__list">
-      <!--
-          <li class="elements__item">
-            <figure class="elements__figure">
 
-              <button type="button" class="elements__bin"></button>
-
-              <img src="./images/baikal.jpg" alt="Байкал" class="elements__image">
-
-              <figcaption class="elements__caption">
-                <h2 class="elements__caption-text">Байкал</h2>
-                <button type="button" class="elements__like"></button>
-              </figcaption>
-              
-            </figure>
-          </li>
-      
-          <li class="elements__item">
-            <figure class="elements__figure">
-
-              <img src="./images/komi.jpg" alt="Коми" class="elements__image">
-
-              <figcaption class="elements__caption">
-                <h2 class="elements__caption-text">Коми</h2>
-                <button type="button" class="elements__like"></button>
-              </figcaption>
-              
-            </figure>
-          </li>
-      
-          <li class="elements__item">
-            <figure class="elements__figure">
-
-              <img src="./images/magadan.jpg" alt="Магадан" class="elements__image">
-
-              <figcaption class="elements__caption">
-                <h2 class="elements__caption-text">Магадан</h2>
-                <button type="button" class="elements__like"></button>
-              </figcaption>
-              
-            </figure>
-          </li>
-      
-          <li class="elements__item">
-            <figure class="elements__figure">
-
-              <img src="./images/olkhon.jpg" alt="Ольхон" class="elements__image">
-
-              <figcaption class="elements__caption">
-                <h2 class="elements__caption-text">Ольхон</h2>
-                <button type="button" class="elements__like"></button>
-              </figcaption>
-              
-            </figure>
-          </li>
-      
-          <li class="elements__item">
-            <figure class="elements__figure">
-
-              <img src="./images/primorski.jpg" alt="Приморский край" class="elements__image">
-
-              <figcaption class="elements__caption">
-                <h2 class="elements__caption-text">Приморский край таакоооооооой приморский</h2>
-                <button type="button" class="elements__like"></button>
-              </figcaption>
-              
-            </figure>
-          </li>
-      
-          <li class="elements__item">
-            <figure class="elements__figure">
-
-              <img src="./images/sochi.jpg" alt="Сочи" class="elements__image">
-
-              <figcaption class="elements__caption">
-                <h2 class="elements__caption-text">Сочи</h2>
-                <button type="button" class="elements__like"></button>
-              </figcaption>
-              
-            </figure>
-          </li>-->
-      
         </ul>
       
       </section>
@@ -152,8 +72,8 @@
 
       <h2 class="popup__title">Редактировать профиль</h2>
 
-      <input class="popup__input" type="text" name="name">
-      <input class="popup__input" type="text" name="profession"> 
+      <input class="popup__input" type="text" name="name" placeholder="">
+      <input class="popup__input" type="text" name="profession" placeholder=""> 
 
       <button class="popup__submit-button" type="submit">Сохранить</button>
 
@@ -172,7 +92,7 @@
       <h2 class="popup__title">Новое место</h2>
   
       <input class="popup__input" type="text" name="place-name" placeholder="Название">
-      <input class="popup__input" type="text" name="picture" placeholder="Ссылка на картинку">
+      <input class="popup__input" type="url" name="picture" required placeholder="Ссылка на картинку">
   
       <button class="popup__submit-button" type="submit">Создать</button>
   

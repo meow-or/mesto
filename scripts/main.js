@@ -99,14 +99,13 @@ function cardAdd (evt) {
   
   listContainer.prepend(newPlace);
 
-  inputPlaceName.value = '';
-  inputPlacePicture.value = '';
+  formPlace.reset();
 
-  togglePopup(overlayPlace);
+  closePopup(overlayPlace);
 }
 
-addPlaceButton.addEventListener('click', () => togglePopup(overlayPlace));
-placeCloseButton.addEventListener('click', () => togglePopup(overlayPlace));  
+addPlaceButton.addEventListener('click', () => openPopup(overlayPlace));
+placeCloseButton.addEventListener('click', () => closePopup(overlayPlace));  
 
 formPlace.addEventListener('submit', cardAdd); 
 
@@ -116,10 +115,10 @@ function openImagePopup (item) {
   imagePopup.src = item.link;
   imagePopup.alt = item.name;
   imageCaption.textContent = item.name;
-  togglePopup(overlayImage);
+  openPopup(overlayImage);
 }
 
-overlayImageCloseButton.addEventListener('click', () => togglePopup(overlayImage));
+overlayImageCloseButton.addEventListener('click', () => closePopup(overlayImage));
 
 
 /* remove card */
@@ -142,17 +141,26 @@ const saveProfile = function (evt) {
   evt.preventDefault();
   inputNameText.textContent = inputName.value;
   inputProfessionText.textContent = inputProfession.value;
-  toggleProfile();
+  togglePopup(overlayProfile);
 }
 
 editProfileButton.addEventListener('click', toggleProfile);
 profileCloseButton.addEventListener('click', toggleProfile);  
+
 
 formProfile.addEventListener('submit', saveProfile); 
 
 
 function togglePopup(item) {
   item.classList.toggle('popup_opened');
+}
+
+function openPopup(item) {
+  item.classList.add('popup_opened');
+}
+
+function closePopup(item) {
+  item.classList.remove('popup_opened');
 }
 
 
