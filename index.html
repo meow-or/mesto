@@ -9,6 +9,7 @@
   <title>Mesto-Russia</title>
   <link rel="stylesheet" href="./pages/index.css">
   <script src="./scripts/main.js" defer></script>
+  <script src="./scripts/validate.js" defer></script>
 </head>
 <body class="page">
 
@@ -72,8 +73,11 @@
 
       <h2 class="popup__title">Редактировать профиль</h2>
 
-      <input class="popup__input" type="text" name="name" placeholder="">
-      <input class="popup__input" type="text" name="profession" placeholder=""> 
+      <input class="popup__input" type="text" name="name" placeholder="" required minlength="2" maxlength="40">
+      <span class="popup__input-error">some error is not defined</span>
+
+      <input class="popup__input" type="text" name="profession" placeholder="" required minlength="2" maxlength="200"> 
+      <span class="popup__input-error">some error is not defined</span>
 
       <button class="popup__submit-button" type="submit">Сохранить</button>
 
@@ -91,9 +95,12 @@
   
       <h2 class="popup__title">Новое место</h2>
   
-      <input class="popup__input" type="text" name="place-name" placeholder="Название">
-      <input class="popup__input" type="url" name="picture" required placeholder="Ссылка на картинку">
-  
+      <input class="popup__input" type="text" name="place-name" placeholder="Название" required minlength="2" maxlength="30">
+      <span class="popup__input-error">some error is not defined</span>
+
+      <input class="popup__input" type="url" name="picture" required placeholder="Ссылка на картинку" required>
+      <span class="popup__input-error">some error is not defined</span>
+
       <button class="popup__submit-button" type="submit">Создать</button>
   
     </form>

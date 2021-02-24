@@ -131,35 +131,31 @@ function cardRemove (evt) {
 
 /* profile */
 
-const toggleProfile = function () {
+const editProfile = function () {
   inputName.value = inputNameText.textContent;
   inputProfession.value = inputProfessionText.textContent; 
-  togglePopup(overlayProfile);
+  openPopup(overlayProfile);
 }
 
 const saveProfile = function (evt) {
   evt.preventDefault();
   inputNameText.textContent = inputName.value;
   inputProfessionText.textContent = inputProfession.value;
-  togglePopup(overlayProfile);
+  closePopup(overlayProfile);
 }
 
-editProfileButton.addEventListener('click', toggleProfile);
-profileCloseButton.addEventListener('click', toggleProfile);  
+editProfileButton.addEventListener('click', () => editProfile(overlayProfile));
+profileCloseButton.addEventListener('click', () => closePopup(overlayProfile));  
 
 
 formProfile.addEventListener('submit', saveProfile); 
 
 
-function togglePopup(item) {
-  item.classList.toggle('popup_opened');
-}
-
-function openPopup(item) {
+const openPopup = function (item) {
   item.classList.add('popup_opened');
 }
 
-function closePopup(item) {
+const closePopup = function (item) {
   item.classList.remove('popup_opened');
 }
 
