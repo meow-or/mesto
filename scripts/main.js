@@ -25,8 +25,6 @@ const initialCards = [
   }
 ];
 
-const overlay = document.querySelector('.popup');
-
 /* profile */
 const overlayProfile = document.querySelector('.popup_type_profile');
 const formProfile = overlayProfile.querySelector('.popup__container');
@@ -109,7 +107,9 @@ function cardAdd (evt) {
 addPlaceButton.addEventListener('click', () => openPopup(overlayPlace));
 placeCloseButton.addEventListener('click', () => closePopup(overlayPlace));
 /*закрытие по тёмному фону*/
-overlayPlace.addEventListener('click', () => closePopup(overlayPlace));
+overlayPlace.addEventListener('click', closePopupByOverlay);
+/*закрытие по Esc*/
+closePopupByEsc(overlayPlace);
 
 formPlace.addEventListener('submit', cardAdd); 
 
@@ -124,7 +124,9 @@ function openImagePopup (item) {
 
 overlayImageCloseButton.addEventListener('click', () => closePopup(overlayImage));
 /*закрытие по тёмному фону*/
-overlayImage.addEventListener('click', () => closePopup(overlayImage));
+overlayImage.addEventListener('click', closePopupByOverlay);  
+/*закрытие по Esc*/
+closePopupByEsc(overlayImage);
 
 /* remove card */
 
@@ -152,7 +154,10 @@ const saveProfile = function (evt) {
 editProfileButton.addEventListener('click', () => editProfile(overlayProfile));
 profileCloseButton.addEventListener('click', () => closePopup(overlayProfile)); 
 /*закрытие по тёмному фону*/
-overlayProfile.addEventListener('click', () => closePopup(overlayProfile));
+overlayProfile.addEventListener('click', closePopupByOverlay);
+
+/*закрытие по Esc*/
+closePopupByEsc(overlayProfile);
 
 formProfile.addEventListener('submit', saveProfile); 
 
@@ -164,6 +169,23 @@ const openPopup = function (item) {
 const closePopup = function (item) {
   item.classList.remove('popup_opened');
 }
+
+function closePopupByOverlay (evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
+  }
+}
+
+function closePopupByEsc (item) {
+    document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(item);
+    }
+  }) 
+}
+
+
+
 
 
 render();
