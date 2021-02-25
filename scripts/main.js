@@ -108,8 +108,6 @@ addPlaceButton.addEventListener('click', () => openPopup(overlayPlace));
 placeCloseButton.addEventListener('click', () => closePopup(overlayPlace));
 /*закрытие по тёмному фону*/
 overlayPlace.addEventListener('click', closePopupByOverlay);
-/*закрытие по Esc*/
-closePopupByEsc(overlayPlace);
 
 formPlace.addEventListener('submit', cardAdd); 
 
@@ -125,8 +123,6 @@ function openImagePopup (item) {
 overlayImageCloseButton.addEventListener('click', () => closePopup(overlayImage));
 /*закрытие по тёмному фону*/
 overlayImage.addEventListener('click', closePopupByOverlay);  
-/*закрытие по Esc*/
-closePopupByEsc(overlayImage);
 
 /* remove card */
 
@@ -156,18 +152,17 @@ profileCloseButton.addEventListener('click', () => closePopup(overlayProfile));
 /*закрытие по тёмному фону*/
 overlayProfile.addEventListener('click', closePopupByOverlay);
 
-/*закрытие по Esc*/
-closePopupByEsc(overlayProfile);
-
 formProfile.addEventListener('submit', saveProfile); 
 
 
 const openPopup = function (item) {
   item.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc(item));
 }
 
 const closePopup = function (item) {
   item.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEsc(item));
 }
 
 function closePopupByOverlay (evt) {
@@ -176,6 +171,7 @@ function closePopupByOverlay (evt) {
   }
 }
 
+
 function closePopupByEsc (item) {
     document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') {
@@ -183,10 +179,6 @@ function closePopupByEsc (item) {
     }
   }) 
 }
-
-
-
-
 
 render();
 
