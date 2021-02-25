@@ -25,6 +25,8 @@ const initialCards = [
   }
 ];
 
+const overlay = document.querySelector('.popup');
+
 /* profile */
 const overlayProfile = document.querySelector('.popup_type_profile');
 const formProfile = overlayProfile.querySelector('.popup__container');
@@ -105,7 +107,9 @@ function cardAdd (evt) {
 }
 
 addPlaceButton.addEventListener('click', () => openPopup(overlayPlace));
-placeCloseButton.addEventListener('click', () => closePopup(overlayPlace));  
+placeCloseButton.addEventListener('click', () => closePopup(overlayPlace));
+/*закрытие по тёмному фону*/
+overlayPlace.addEventListener('click', () => closePopup(overlayPlace));
 
 formPlace.addEventListener('submit', cardAdd); 
 
@@ -119,7 +123,8 @@ function openImagePopup (item) {
 }
 
 overlayImageCloseButton.addEventListener('click', () => closePopup(overlayImage));
-
+/*закрытие по тёмному фону*/
+overlayImage.addEventListener('click', () => closePopup(overlayImage));
 
 /* remove card */
 
@@ -145,8 +150,9 @@ const saveProfile = function (evt) {
 }
 
 editProfileButton.addEventListener('click', () => editProfile(overlayProfile));
-profileCloseButton.addEventListener('click', () => closePopup(overlayProfile));  
-
+profileCloseButton.addEventListener('click', () => closePopup(overlayProfile)); 
+/*закрытие по тёмному фону*/
+overlayProfile.addEventListener('click', () => closePopup(overlayProfile));
 
 formProfile.addEventListener('submit', saveProfile); 
 
