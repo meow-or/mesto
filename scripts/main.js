@@ -105,7 +105,9 @@ function cardAdd (evt) {
 }
 
 addPlaceButton.addEventListener('click', () => openPopup(overlayPlace));
-placeCloseButton.addEventListener('click', () => closePopup(overlayPlace));  
+placeCloseButton.addEventListener('click', () => closePopup(overlayPlace));
+/*закрытие по тёмному фону*/
+overlayPlace.addEventListener('click', closePopupByOverlay);
 
 formPlace.addEventListener('submit', cardAdd); 
 
@@ -119,7 +121,8 @@ function openImagePopup (item) {
 }
 
 overlayImageCloseButton.addEventListener('click', () => closePopup(overlayImage));
-
+/*закрытие по тёмному фону*/
+overlayImage.addEventListener('click', closePopupByOverlay);  
 
 /* remove card */
 
@@ -131,38 +134,51 @@ function cardRemove (evt) {
 
 /* profile */
 
-const toggleProfile = function () {
+const editProfile = function () {
   inputName.value = inputNameText.textContent;
   inputProfession.value = inputProfessionText.textContent; 
-  togglePopup(overlayProfile);
+  openPopup(overlayProfile);
 }
 
 const saveProfile = function (evt) {
   evt.preventDefault();
   inputNameText.textContent = inputName.value;
   inputProfessionText.textContent = inputProfession.value;
-  togglePopup(overlayProfile);
+  closePopup(overlayProfile);
 }
 
-editProfileButton.addEventListener('click', toggleProfile);
-profileCloseButton.addEventListener('click', toggleProfile);  
-
+editProfileButton.addEventListener('click', () => editProfile(overlayProfile));
+profileCloseButton.addEventListener('click', () => closePopup(overlayProfile)); 
+/*закрытие по тёмному фону*/
+overlayProfile.addEventListener('click', closePopupByOverlay);
 
 formProfile.addEventListener('submit', saveProfile); 
 
 
-function togglePopup(item) {
-  item.classList.toggle('popup_opened');
-}
-
-function openPopup(item) {
+const openPopup = function (item) {
   item.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc(item));
 }
 
-function closePopup(item) {
+const closePopup = function (item) {
   item.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEsc(item));
 }
 
+function closePopupByOverlay (evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
+  }
+}
+
+
+function closePopupByEsc (item) {
+    document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(item);
+    }
+  }) 
+}
 
 render();
 
