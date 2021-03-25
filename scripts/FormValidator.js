@@ -1,3 +1,8 @@
+export default class FormValidator{
+  constructor() {
+    
+  }
+};
 
 const settingObject = ({
   formSelector: '.popup__container',
