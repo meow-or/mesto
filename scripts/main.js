@@ -1,3 +1,4 @@
+
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 export {imagePopup, imageCaption, overlayImage, openPopup};
@@ -29,6 +30,7 @@ const initialCards = [
   }
 ];
 
+
 // profile
 const overlayProfile = document.querySelector('.popup_type_profile');
 const formProfile = overlayProfile.querySelector('.popup__container');
@@ -55,6 +57,8 @@ const imageCaption = document.querySelector('.popup__caption-text');
 const listContainer = document.querySelector('.elements__list');
 const popups = document.querySelectorAll('.popup');
 
+const formCardAdd = document.querySelector('.popup__container[name="edit-form"]');
+const formProfileAdd = document.querySelector('.popup__container[name="add-place"]');
 
 function newCard(data) {
   const card = new Card(data, '.template'); // Создадим экземпляр карточки
@@ -134,3 +138,16 @@ function closePopupByEsc (evt) {
   }
 }
 
+const settingObject = ({
+  formSelector: '.popup__container',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_disabled',
+  spanErrorClass: '.popup__input-error',
+  errorClass: 'popup__input-error_active',
+  inputErrorClass: 'popup__input_error'
+});
+
+  const profileValidator = new FormValidator(settingObject, formCardAdd).enableValidation();
+  const cardValidator = new FormValidator(settingObject, formProfileAdd).enableValidation();
+  
