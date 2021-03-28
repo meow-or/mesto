@@ -1,10 +1,16 @@
-import {imagePopup, imageCaption, overlayImage, openPopup} from './main.js';
+import {openPopup} from '../utils/utils.js';
+import {imagePopup, imageCaption, overlayImage} from '../utils/constants.js';
 
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector = '.template') {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._markup = this._getTemplate();// Запишем разметку в приватное поле _markup. Так у других элементов появится доступ к ней.
+    this._cardImage = this._markup.querySelector('.elements__image');
+    this._cardName = this._markup.querySelector('.elements__caption-text');
+    this._likeButton = this._markup.querySelector('.elements__like');
+    this._removeCardButton = this._markup.querySelector('.elements__bin');
   }
 
   _getTemplate() {
@@ -18,13 +24,10 @@ export default class Card {
   }
 
   generateCard() {
-    // Запишем разметку в приватное поле _markup. Так у других элементов появится доступ к ней.
-    this._markup = this._getTemplate();
-
     // Добавим данные
-    this._markup.querySelector('.elements__caption-text').textContent = this._name;
-    this._markup.querySelector('.elements__image').src = this._link;
-    this._markup.querySelector('.elements__image').alt = this._name;
+    this._cardName.textContent = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
 
     this._setEventListeners();
 
@@ -33,25 +36,25 @@ export default class Card {
 
   _setEventListeners() {
 
-    this._markup.querySelector('.elements__like').addEventListener('click', () => {
+    this._likeButton.addEventListener('click', () => {
       this._likeToggle();
     })
 
-    this._markup.querySelector('.elements__bin').addEventListener('click', () => {
+    this._removeCardButton.addEventListener('click', () => {
       this._cardRemove();
     });
 
-    this._markup.querySelector('.elements__image').addEventListener('click', () => {
+    this._cardImage.addEventListener('click', () => {
       this._openImagePopup();
     });
   }
 
   _likeToggle() {//переключатель лайков
-    this._markup.querySelector('.elements__like').classList.toggle('elements__like_active');
+    this._likeButton.classList.toggle('elements__like_active');
   }
 
   _cardRemove () {// удаление карточек
-    const targetCard = this._markup.querySelector('.elements__bin').closest('.elements__item');
+    const targetCard = this._removeCardButton.closest('.elements__item');
     targetCard.remove();
   }
 
@@ -62,5 +65,6 @@ export default class Card {
     openPopup(overlayImage);
   }
   
+
 }
 
