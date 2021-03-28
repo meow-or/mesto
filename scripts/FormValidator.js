@@ -73,6 +73,13 @@ export default class FormValidator{
       this._switchButtonLock();
   };
 
+    resetValidation() {
+      this._inputList.forEach((inputElement) => {
+        this._hideInputError(inputElement);
+      })
+      this._switchButtonLock();
+    }
+
 
     enableValidation () {
       this._setEventListeners();
