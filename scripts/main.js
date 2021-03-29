@@ -63,6 +63,7 @@ function submitAddCardPopup (evt) {
 addPlaceButton.addEventListener('click', () => {
   openPopup(overlayPlace);
   cardValidator.resetValidation();
+  formPlace.reset();
 });
 formPlace.addEventListener('submit', submitAddCardPopup); 
 
@@ -84,6 +85,7 @@ const saveProfile = function (evt) {
 editProfileButton.addEventListener('click', () => {
   openEditProfilePopup(overlayProfile);
   profileValidator.resetValidation();
+  formPlace.reset();
 });
 formProfile.addEventListener('submit', saveProfile); 
 
