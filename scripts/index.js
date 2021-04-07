@@ -1,7 +1,8 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
-import {initialCards} from './initial-cards.js';
-import {openPopup, closePopup} from '../utils/utils.js';
+import Section from "./Section.js";
+import { initialCards } from './initial-cards.js';
+import { openPopup, closePopup } from '../utils/utils.js';
 import {
   overlayProfile,
   formProfile,
@@ -22,6 +23,8 @@ import {
   settingObject
 } from '../utils/constants.js';
 
+
+/*
 function createCard(data) {
   const card = new Card(data); // Создадим экземпляр карточки
   const cardElement = card.generateCard(); // Создаём карточку и возвращаем наружу
@@ -31,7 +34,20 @@ function createCard(data) {
 
 initialCards.forEach((item) => {
   listContainer.append(createCard(item)); // Добавляем в DOM
-})
+});
+*/
+
+const cardList = new Section({ items: initialCards, renderer: (item) => {
+    
+    const card = new Card(item);
+    const cardElement = card.generateCard();
+
+    cardList.addItem(cardElement);
+  }}, '.elements__list'); 
+
+cardList.renderItems();
+
+
 
 // закрытие попапов по крестику или оверлею 
 
