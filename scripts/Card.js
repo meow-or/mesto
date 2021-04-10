@@ -1,8 +1,8 @@
-import {openPopup} from '../utils/utils.js';
-import {imagePopup, imageCaption, overlayImage} from '../utils/constants.js';
+//import {openPopup} from '../utils/utils.js';
+//import {fullsizeCardImage, imageCaption/*overlayImage*/} from '../utils/constants.js';
 
 export default class Card {
-  constructor(data, cardSelector = '.template') {
+  constructor(data, cardSelector = '.template', handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
@@ -11,6 +11,8 @@ export default class Card {
     this._cardName = this._markup.querySelector('.elements__caption-text');
     this._likeButton = this._markup.querySelector('.elements__like');
     this._removeCardButton = this._markup.querySelector('.elements__bin');
+
+    this.handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -45,7 +47,7 @@ export default class Card {
     });
 
     this._cardImage.addEventListener('click', () => {
-      this._openImagePopup();
+      this.handleCardClick();
     });
   }
 
@@ -57,14 +59,14 @@ export default class Card {
     const targetCard = this._removeCardButton.closest('.elements__item');
     targetCard.remove();
   }
-
+/*
   _openImagePopup () {//open fullsize picture
-    imagePopup.src = this._link;
-    imagePopup.alt = this._name;
+    fullsizeCardImage.src = this._link;
+    fullsizeCardImage.alt = this._name;
     imageCaption.textContent = this._name;
-    openPopup(overlayImage);
+    //openPopup(overlayImage);
   }
-  
+  */
 
 }
 

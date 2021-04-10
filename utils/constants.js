@@ -1,7 +1,8 @@
 export {
-  imagePopup,
+  fullsizeCardImage,
+  /*imagePopup, instead fullsizeCardImage*/
   imageCaption,
-  overlayImage,
+  /*overlayImage,*/
   overlayProfile,
   formProfile,
   editProfileButton,
@@ -32,8 +33,8 @@ const settingObject = ({
 });
 
 // popup image
-const overlayImage = document.querySelector('.popup_type_image');
-const imagePopup = document.querySelector('.popup__image');
+/*const overlayImage = document.querySelector('.popup_type_image');*/
+const fullsizeCardImage = document.querySelector('.popup__image');
 const imageCaption = document.querySelector('.popup__caption-text');
 
 //profile

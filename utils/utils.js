@@ -1,5 +1,5 @@
-export {openPopup, closePopup};
-
+//export {openPopup, closePopup};
+/*
 const openPopup = function (item) {
   item.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupByEsc);
@@ -16,3 +16,13 @@ function closePopupByEsc (evt) {
     closePopup(openedPopup);
   }
 }
+*/
+/*
+
+popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup__image')) {
+        open(popup);
+      }
+    })
+  })*/
