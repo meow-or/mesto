@@ -5,10 +5,12 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-
+    
   }
 
   setUserInfo() {
     
   }
+
+
 }

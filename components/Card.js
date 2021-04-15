@@ -1,5 +1,3 @@
-//import {openPopup} from '../utils/utils.js';
-//import {fullsizeCardImage, imageCaption/*overlayImage*/} from '../utils/constants.js';
 
 export default class Card {
   constructor(data, cardSelector = '.template', handleCardClick) {
@@ -59,14 +57,6 @@ export default class Card {
     const targetCard = this._removeCardButton.closest('.elements__item');
     targetCard.remove();
   }
-/*
-  _openImagePopup () {//open fullsize picture
-    fullsizeCardImage.src = this._link;
-    fullsizeCardImage.alt = this._name;
-    imageCaption.textContent = this._name;
-    //openPopup(overlayImage);
-  }
-  */
 
 }
 
