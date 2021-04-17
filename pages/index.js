@@ -6,19 +6,19 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import { initialCards } from '../utils/initial-cards.js';
 import {
-  overlayProfile,
-  formProfile,
+  /*overlayProfile,
+  formProfile,*/
   editProfileButton,
   inputName,
   inputProfession,
-  inputNameText,
-  inputProfessionText,
+  /*inputNameText,
+  inputProfessionText,*/
   /*overlayPlace,*/
   addPlaceButton,
-  formPlace,
-  inputPlaceName,
-  inputPlacePicture,
-  listContainer,
+  /*formPlace,*/
+  /*inputPlaceName,*/
+  /*inputPlacePicture,*/
+  /*listContainer,*/
   /*popups,*/
   formCardAdd,
   formProfileAdd,
@@ -52,62 +52,84 @@ cardList.renderItems(); //отрисовывает каждый элемент  
 
 const newCardPopup = new PopupWithForm('.popup_type_new-place', (item) => { //function handleFormSubmit(item)
   cardList.addItem(createCard({name: item['place-name'], link: item['picture']}))
-  
+    
 });
 newCardPopup.setEventListeners();
-/*=========================================================================================*/
-
-const imagePopup = new PopupWithImage('.popup_type_image');
-imagePopup.setEventListeners();
-
-const profilePopup = new PopupWithForm('.popup_type_profile', function handleFormSubmit() {
-
-});
-
-
-profilePopup.setEventListeners();
-
-const userInfo = new UserInfo({userName: '.profile__title', userAbout: '.profile__subtitle'});
-
 
 
 addPlaceButton.addEventListener('click', () => {
   newCardPopup.open();
   cardValidator.resetValidation();
-  //formPlace.reset();
 });
-
 
 // profile
 
-const openEditProfilePopup = function () {
-  inputName.value = inputNameText.textContent;
-  inputProfession.value = inputProfessionText.textContent; 
-  profilePopup.open();
-  
-}
+const userInfo = new UserInfo('.profile__title', '.profile__subtitle');
 
-const saveProfile = function (evt) {
-  evt.preventDefault();
-  inputNameText.textContent = inputName.value;
-  inputProfessionText.textContent = inputProfession.value;
-  profilePopup.close();
-}
-
-editProfileButton.addEventListener('click', () => {
-  openEditProfilePopup(overlayProfile);
-  profileValidator.resetValidation();
-  //formPlace.reset();
+const profilePopup = new PopupWithForm('.popup_type_profile', (values) => {// function handleFormSubmit
+  userInfo.setUserInfo(values);
 });
 
+profilePopup.setEventListeners();
 
-formProfile.addEventListener('submit', saveProfile); 
+
+
+editProfileButton.addEventListener('click', () => { //ф-я открытия попапа + валидация формы
+  
+  const profileInfo = userInfo.getUserInfo();
+  inputName.value = profileInfo.name;
+  inputProfession.value = profileInfo.info;
+  
+  profilePopup.open();
+  profileValidator.resetValidation();
+  
+});
+
 
 const profileValidator = new FormValidator(settingObject, formCardAdd);
 profileValidator.enableValidation();
 
 const cardValidator = new FormValidator(settingObject, formProfileAdd);
 cardValidator.enableValidation();
+
+const imagePopup = new PopupWithImage('.popup_type_image');
+imagePopup.setEventListeners();
+/*
+const saveProfile = function (evt) {//сохранение введенных в форму данных и закрытие попапа
+  evt.preventDefault();
+  inputNameText.textContent = inputName.value;
+  inputProfessionText.textContent = inputProfession.value;
+  profilePopup.close();
+}*/
+
+//formProfile.addEventListener('submit', saveProfile); //сабмит формы
+
+/*============================================================================================*/
+/*
+const openEditProfilePopup = function () {  //открываем попап с данными из разметки, вставленными  в форму
+  inputName.value = inputNameText.textContent;
+  inputProfession.value = inputProfessionText.textContent; 
+  profilePopup.open();
+  
+}
+
+
+editProfileButton.addEventListener('click', () => { //ф-я открытия попапа + валидация формы
+  openEditProfilePopup(overlayProfile);
+  profileValidator.resetValidation();
+  
+});
+
+const saveProfile = function (evt) {//сохранение введенных в форму данных и закрытие попапа
+  evt.preventDefault();
+  inputNameText.textContent = inputName.value;
+  inputProfessionText.textContent = inputProfession.value;
+  profilePopup.close();
+}*/
+
+//formProfile.addEventListener('submit', saveProfile); //сабмит формы
+
+
 
 
 
