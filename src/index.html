@@ -7,7 +7,6 @@
   <meta name="keywords" content="Фотография, фото, лайк, профиль, Mesto, Russia">
   <meta name="author" content="Pavel Fazliev">
   <title>Mesto-Russia</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
 
@@ -15,7 +14,7 @@
 
     <header class="header page__header">
 
-      <img class="header__logo" src="./images/logo.svg" alt="Логотип">
+      <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип">
 
     </header>
     
@@ -26,7 +25,7 @@
 
       <section class="profile page__profile">
 
-        <img src="./images/kusto.jpg" alt="Аватар" class="profile__avatar">
+        <img src="<%=require('./images/kusto.jpg')%>" alt="Аватар" class="profile__avatar">
 
         <div class="profile__info">
 
@@ -122,7 +121,7 @@
     
     </section>
 
-    <!--              template new-place card             -->
+    <!--              template new-place card           <script src="./pages/index.js" type="module"></script>  -->
 
   <template class="template">
 
@@ -142,8 +141,6 @@
     </li>
 
   </template>
-
-<script src="./pages/index.js" type="module"></script>
 
 </body>
 </html>
