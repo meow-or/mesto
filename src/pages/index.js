@@ -43,7 +43,7 @@ cardList.renderItems(); //отрисовывает каждый элемент  
 
 const newCardPopup = new PopupWithForm('.popup_type_new-place', (item) => { //function handleFormSubmit(item)
   cardList.addItem(createCard({name: item['place-name'], link: item['picture']}))
-    
+  newCardPopup.close();
 });
 newCardPopup.setEventListeners();
 
@@ -59,6 +59,7 @@ const userInfo = new UserInfo('.profile__title', '.profile__subtitle');
 
 const profilePopup = new PopupWithForm('.popup_type_profile', (values) => {// function handleFormSubmit
   userInfo.setUserInfo(values);
+  profilePopup.close();
 });
 
 profilePopup.setEventListeners();
@@ -85,39 +86,4 @@ cardValidator.enableValidation();
 
 const imagePopup = new PopupWithImage('.popup_type_image');
 imagePopup.setEventListeners();
-/*
-const saveProfile = function (evt) {//сохранение введенных в форму данных и закрытие попапа
-  evt.preventDefault();
-  inputNameText.textContent = inputName.value;
-  inputProfessionText.textContent = inputProfession.value;
-  profilePopup.close();
-}*/
-
-//formProfile.addEventListener('submit', saveProfile); //сабмит формы
-
-/*============================================================================================*/
-/*
-const openEditProfilePopup = function () {  //открываем попап с данными из разметки, вставленными  в форму
-  inputName.value = inputNameText.textContent;
-  inputProfession.value = inputProfessionText.textContent; 
-  profilePopup.open();
-  
-}
-
-
-editProfileButton.addEventListener('click', () => { //ф-я открытия попапа + валидация формы
-  openEditProfilePopup(overlayProfile);
-  profileValidator.resetValidation();
-  
-});
-
-const saveProfile = function (evt) {//сохранение введенных в форму данных и закрытие попапа
-  evt.preventDefault();
-  inputNameText.textContent = inputName.value;
-  inputProfessionText.textContent = inputProfession.value;
-  profilePopup.close();
-}*/
-
-//formProfile.addEventListener('submit', saveProfile); //сабмит формы
-
 

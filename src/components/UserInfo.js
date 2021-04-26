@@ -14,11 +14,11 @@ export default class UserInfo {
   setUserInfo(profileData) {
     this._userName.textContent = profileData['myname'];
     this._userInfo.textContent = profileData['profession'];
-
+/*
     const enterUserInfo = {
       name: this._userName.textContent,
       info: this._userInfo.textContent
-    }
+    }*/
   }
 
 

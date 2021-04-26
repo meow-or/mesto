@@ -1,14 +1,3 @@
-export {
-  fullsizeCardImage,
-  imageCaption,
-  editProfileButton,
-  inputName,
-  inputProfession,
-  addPlaceButton,
-  formCardAdd,
-  formProfileAdd,
-  settingObject
-};
 
 const settingObject = ({
   formSelector: '.popup__container',
@@ -35,3 +24,15 @@ const addPlaceButton = document.querySelector('.profile__add-button');
 
 const formCardAdd = document.querySelector('.popup__container[name="edit-form"]');
 const formProfileAdd = document.querySelector('.popup__container[name="add-place"]');
+
+export {
+  fullsizeCardImage,
+  imageCaption,
+  editProfileButton,
+  inputName,
+  inputProfession,
+  addPlaceButton,
+  formCardAdd,
+  formProfileAdd,
+  settingObject
+};
